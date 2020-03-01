@@ -1,38 +1,24 @@
 package object_passing;
 
-class Methods {
-    
-    public static void static_method(type obj){
-        obj.name = "Static Mathod";
-    }
-
-    public void instance_method(type obj){
-        obj.name = "Instance Method";
-    }
-    
-    Methods(type obj){
-        obj.name = "Constructor";
-    }
-}
-
-
 public class Object_Passing {
 
     public static void main(String[] args) {
         
-        type t = new type();
-        t.name = "Main";
-        System.out.println(t.name);
+        Box b1 = new Box(10,20);
+        Box b2 = new Box(30,40);      
+        Box b3 = new Box(b1);
+
+        b1.display();
+        b2.display();
+        b3.display();
         
-        Methods mtd = new Methods(t);
-        System.out.println(t.name);
+        if(b1.isEqual(b2)) System.out.println("b1 and b2 are eaual");
+        else System.out.println("b1 and b2 are not eaual");
         
-        Methods.static_method(t);
-        System.out.println(t.name);
-        
-        mtd.instance_method(t);
-        System.out.println(t.name);
-        
+        if(Box.isTwoObectsEqual(b1, b3)) System.out.println("b1 and b3 are eaual");
+        else System.out.println("b1 and b3 are not eaual");
+
     }
 }
+
 
